@@ -35,7 +35,53 @@
   <PropertyGroup>
     <ApplicationIcon>LTicon.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MNetComClient3, Version=3.1.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MNetComClient3.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -56,19 +102,56 @@
     <Compile Include="exitConfirm.Designer.cs">
       <DependentUpon>exitConfirm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FeederWin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FeederWin.Designer.cs">
+      <DependentUpon>FeederWin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoadingWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoadingWindow.Designer.cs">
+      <DependentUpon>LoadingWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="loadMonitor.cs" />
     <Compile Include="LTGui.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="LTGui.Designer.cs">
       <DependentUpon>LTGui.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewRat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewRat.Designer.cs">
+      <DependentUpon>NewRat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NLXReminder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NLXReminder.Designer.cs">
+      <DependentUpon>NLXReminder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="exitConfirm.resx">
       <DependentUpon>exitConfirm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FeederWin.resx">
+      <DependentUpon>FeederWin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoadingWindow.resx">
+      <DependentUpon>LoadingWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LTGui.resx">
       <DependentUpon>LTGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewRat.resx">
+      <DependentUpon>NewRat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NLXReminder.resx">
+      <DependentUpon>NLXReminder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

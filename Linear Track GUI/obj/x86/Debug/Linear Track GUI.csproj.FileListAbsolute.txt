@@ -1,0 +1,15 @@
+C:\Users\akoutia\Source\Repos\LinearTrack\Linear Track GUI\bin\x86\Debug\Linear Track GUI.exe.config
+C:\Users\akoutia\Source\Repos\LinearTrack\Linear Track GUI\bin\x86\Debug\Linear Track GUI.exe
+C:\Users\akoutia\Source\Repos\LinearTrack\Linear Track GUI\bin\x86\Debug\Linear Track GUI.pdb
+C:\Users\akoutia\Source\Repos\LinearTrack\Linear Track GUI\bin\x86\Debug\MNetComClient3.dll
+C:\Users\akoutia\Source\Repos\LinearTrack\Linear Track GUI\obj\x86\Debug\Linear_Track_GUI.exitConfirm.resources
+C:\Users\akoutia\Source\Repos\LinearTrack\Linear Track GUI\obj\x86\Debug\Linear_Track_GUI.FeederWin.resources
+C:\Users\akoutia\Source\Repos\LinearTrack\Linear Track GUI\obj\x86\Debug\Linear_Track_GUI.LinearTrackGui.resources
+C:\Users\akoutia\Source\Repos\LinearTrack\Linear Track GUI\obj\x86\Debug\Linear_Track_GUI.NLXReminder.resources
+C:\Users\akoutia\Source\Repos\LinearTrack\Linear Track GUI\obj\x86\Debug\Linear_Track_GUI.Properties.Resources.resources
+C:\Users\akoutia\Source\Repos\LinearTrack\Linear Track GUI\obj\x86\Debug\Linear Track GUI.csproj.GenerateResource.Cache
+C:\Users\akoutia\Source\Repos\LinearTrack\Linear Track GUI\obj\x86\Debug\Linear Track GUI.exe
+C:\Users\akoutia\Source\Repos\LinearTrack\Linear Track GUI\obj\x86\Debug\Linear Track GUI.pdb
+C:\Users\akoutia\Source\Repos\LinearTrack\Linear Track GUI\obj\x86\Debug\Linear Track GUI.csprojResolveAssemblyReference.cache
+C:\Users\akoutia\Source\Repos\LinearTrack\Linear Track GUI\obj\x86\Debug\Linear_Track_GUI.LoadingWindow.resources
+C:\Users\akoutia\Source\Repos\LinearTrack\Linear Track GUI\obj\x86\Debug\Linear_Track_GUI.NewRat.resources
