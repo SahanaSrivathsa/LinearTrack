@@ -10,12 +10,12 @@ namespace Linear_Track_GUI
 
         public static void openLTreader()
         {
-            LTreader = new StreamReader($"C:\\Users\\akoutia\\Documents\\Barnes Lab\\Wmaze\\RatData\\LTtraining\\LTrats.Csv");
+            LTreader = new StreamReader($"C:\\Users\\sahanasrivathsa\\Documents\\Barnes Lab\\LTtraining\\LTrats.Csv");
         }
 
         public static void openLTwriter()
         {
-            LTwriter = new StreamWriter($"C:\\Users\\akoutia\\Documents\\Barnes Lab\\Wmaze\\RatData\\LTtraining\\LTrats.Csv");
+            LTwriter = new StreamWriter($"C:\\Users\\sahanasrivathsa\\Documents\\Barnes Lab\\LTtraining\\LTrats.Csv");
         }
 
         public static void closeLTreader()
@@ -27,7 +27,7 @@ namespace Linear_Track_GUI
         {
             trainingCsv =
                 new StreamWriter(
-                    ($"C:\\Users\\akoutia\\Documents\\Barnes Lab\\Wmaze\\RatData\\LTtraining\\LTtraining_{number}.csv"),
+                    ($"C:\\Users\\sahanasrivathsa\\Documents\\Barnes Lab\\LTtraining\\LTtraining_{number}.csv"),
                     true);
         }
 

@@ -8,3 +8,18 @@ C:\Users\Adele\Documents\Barnes Lab\Wmaze\Linear Track GUI\Linear Track GUI\Line
 C:\Users\Adele\Documents\Barnes Lab\Wmaze\Linear Track GUI\Linear Track GUI\Linear Track GUI\obj\Release\Linear Track GUI.csproj.GenerateResource.Cache
 C:\Users\Adele\Documents\Barnes Lab\Wmaze\Linear Track GUI\Linear Track GUI\Linear Track GUI\obj\Release\Linear Track GUI.exe
 C:\Users\Adele\Documents\Barnes Lab\Wmaze\Linear Track GUI\Linear Track GUI\Linear Track GUI\obj\Release\Linear Track GUI.pdb
+C:\Users\sahanasrivathsa\Documents\GitHub\LinearTrack\Linear Track GUI\bin\Release\Linear Track GUI.exe.config
+C:\Users\sahanasrivathsa\Documents\GitHub\LinearTrack\Linear Track GUI\obj\Release\Linear Track GUI.exe
+C:\Users\sahanasrivathsa\Documents\GitHub\LinearTrack\Linear Track GUI\obj\Release\Linear Track GUI.pdb
+C:\Users\sahanasrivathsa\Documents\GitHub\LinearTrack\Linear Track GUI\bin\Release\Linear Track GUI.exe
+C:\Users\sahanasrivathsa\Documents\GitHub\LinearTrack\Linear Track GUI\bin\Release\Linear Track GUI.pdb
+C:\Users\sahanasrivathsa\Documents\GitHub\LinearTrack\Linear Track GUI\bin\Release\MNetComClient3.dll
+C:\Users\sahanasrivathsa\Documents\GitHub\LinearTrack\Linear Track GUI\obj\Release\Linear Track GUI.csprojResolveAssemblyReference.cache
+C:\Users\sahanasrivathsa\Documents\GitHub\LinearTrack\Linear Track GUI\obj\Release\Linear_Track_GUI.exitConfirm.resources
+C:\Users\sahanasrivathsa\Documents\GitHub\LinearTrack\Linear Track GUI\obj\Release\Linear_Track_GUI.FeederWin.resources
+C:\Users\sahanasrivathsa\Documents\GitHub\LinearTrack\Linear Track GUI\obj\Release\Linear_Track_GUI.LoadingWindow.resources
+C:\Users\sahanasrivathsa\Documents\GitHub\LinearTrack\Linear Track GUI\obj\Release\Linear_Track_GUI.LinearTrackGui.resources
+C:\Users\sahanasrivathsa\Documents\GitHub\LinearTrack\Linear Track GUI\obj\Release\Linear_Track_GUI.NewRat.resources
+C:\Users\sahanasrivathsa\Documents\GitHub\LinearTrack\Linear Track GUI\obj\Release\Linear_Track_GUI.NLXReminder.resources
+C:\Users\sahanasrivathsa\Documents\GitHub\LinearTrack\Linear Track GUI\obj\Release\Linear_Track_GUI.Properties.Resources.resources
+C:\Users\sahanasrivathsa\Documents\GitHub\LinearTrack\Linear Track GUI\obj\Release\Linear Track GUI.csproj.GenerateResource.Cache

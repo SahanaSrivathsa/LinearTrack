@@ -47,6 +47,9 @@
             this.ratAge = new System.Windows.Forms.Label();
             this.ratSession = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.rat_timelabel = new System.Windows.Forms.Label();
+            this.rat_datelabel = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.recording_time = new System.Windows.Forms.Timer(this.components);
             this.selectButton = new System.Windows.Forms.Button();
             this.ratSelectionLabel = new System.Windows.Forms.Label();
@@ -58,6 +61,7 @@
             this.startPostSleep = new System.Windows.Forms.Button();
             this.stopPreSleep = new System.Windows.Forms.Button();
             this.startPreSleep = new System.Windows.Forms.Button();
+            this.ephys = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -73,7 +77,7 @@
             this.notesBox.Multiline = true;
             this.notesBox.Name = "notesBox";
             this.notesBox.Size = new System.Drawing.Size(246, 74);
-            this.notesBox.TabIndex = 0;
+            this.notesBox.TabIndex = 1;
             this.notesBox.TextChanged += new System.EventHandler(this.notesBox_TextChanged);
             // 
             // expBox
@@ -87,7 +91,7 @@
             this.expBox.Multiline = true;
             this.expBox.Name = "expBox";
             this.expBox.Size = new System.Drawing.Size(246, 27);
-            this.expBox.TabIndex = 1;
+            this.expBox.TabIndex = 0;
             // 
             // label1
             // 
@@ -159,7 +163,7 @@
             this.ratSelection.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ratSelection.ForeColor = System.Drawing.Color.White;
             this.ratSelection.FormattingEnabled = true;
-            this.ratSelection.Location = new System.Drawing.Point(11, 57);
+            this.ratSelection.Location = new System.Drawing.Point(11, 45);
             this.ratSelection.Margin = new System.Windows.Forms.Padding(2);
             this.ratSelection.Name = "ratSelection";
             this.ratSelection.Size = new System.Drawing.Size(98, 22);
@@ -171,7 +175,7 @@
             this.timer.AutoSize = true;
             this.timer.Font = new System.Drawing.Font("Consolas", 42F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timer.ForeColor = System.Drawing.Color.PaleTurquoise;
-            this.timer.Location = new System.Drawing.Point(203, 93);
+            this.timer.Location = new System.Drawing.Point(203, 69);
             this.timer.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.timer.Name = "timer";
             this.timer.Size = new System.Drawing.Size(183, 66);
@@ -183,20 +187,21 @@
             this.startButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.startButton.FlatAppearance.BorderSize = 0;
             this.startButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.startButton.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startButton.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.startButton.Location = new System.Drawing.Point(199, 168);
+            this.startButton.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startButton.ForeColor = System.Drawing.Color.DarkGreen;
+            this.startButton.Location = new System.Drawing.Point(172, 145);
             this.startButton.Margin = new System.Windows.Forms.Padding(2);
             this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(66, 36);
+            this.startButton.Size = new System.Drawing.Size(118, 50);
             this.startButton.TabIndex = 11;
-            this.startButton.Text = "START";
+            this.startButton.Text = "START RUN";
             this.startButton.UseVisualStyleBackColor = false;
             this.startButton.Click += new System.EventHandler(this.start_button_click);
             // 
             // saveButton
             // 
-            this.saveButton.BackColor = System.Drawing.Color.Gainsboro;
+            this.saveButton.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.saveButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.saveButton.Font = new System.Drawing.Font("Corbel", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.saveButton.ForeColor = System.Drawing.Color.MediumSlateBlue;
@@ -214,7 +219,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.MediumSlateBlue;
-            this.label6.Location = new System.Drawing.Point(14, 37);
+            this.label6.Location = new System.Drawing.Point(14, 18);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(87, 18);
@@ -226,7 +231,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Corbel", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.MediumSlateBlue;
-            this.label7.Location = new System.Drawing.Point(14, 141);
+            this.label7.Location = new System.Drawing.Point(55, 97);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(34, 18);
@@ -238,45 +243,93 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Corbel", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.MediumSlateBlue;
-            this.label8.Location = new System.Drawing.Point(10, 198);
+            this.label8.Location = new System.Drawing.Point(16, 162);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(113, 18);
             this.label8.TabIndex = 16;
             this.label8.Text = "Training Session";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ratAge
             // 
             this.ratAge.AutoSize = true;
             this.ratAge.Font = new System.Drawing.Font("Consolas", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ratAge.ForeColor = System.Drawing.Color.PaleTurquoise;
-            this.ratAge.Location = new System.Drawing.Point(33, 31);
+            this.ratAge.Location = new System.Drawing.Point(66, 127);
             this.ratAge.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ratAge.Name = "ratAge";
             this.ratAge.Size = new System.Drawing.Size(0, 18);
             this.ratAge.TabIndex = 17;
+            this.ratAge.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ratSession
             // 
             this.ratSession.AutoSize = true;
             this.ratSession.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ratSession.ForeColor = System.Drawing.Color.PaleTurquoise;
-            this.ratSession.Location = new System.Drawing.Point(53, 91);
+            this.ratSession.Location = new System.Drawing.Point(66, 189);
             this.ratSession.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ratSession.Name = "ratSession";
             this.ratSession.Size = new System.Drawing.Size(0, 19);
             this.ratSession.TabIndex = 18;
+            this.ratSession.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.ratSession.Click += new System.EventHandler(this.ratSession_Click);
             // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.rat_timelabel);
+            this.panel2.Controls.Add(this.rat_datelabel);
+            this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.ratAge);
             this.panel2.Controls.Add(this.ratSession);
-            this.panel2.Location = new System.Drawing.Point(6, 136);
+            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Location = new System.Drawing.Point(6, 102);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(141, 137);
+            this.panel2.Size = new System.Drawing.Size(141, 222);
             this.panel2.TabIndex = 19;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // rat_timelabel
+            // 
+            this.rat_timelabel.AutoSize = true;
+            this.rat_timelabel.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rat_timelabel.ForeColor = System.Drawing.Color.PaleTurquoise;
+            this.rat_timelabel.Location = new System.Drawing.Point(36, 69);
+            this.rat_timelabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.rat_timelabel.Name = "rat_timelabel";
+            this.rat_timelabel.Size = new System.Drawing.Size(72, 19);
+            this.rat_timelabel.TabIndex = 21;
+            this.rat_timelabel.Text = "3:57 PM";
+            this.rat_timelabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // rat_datelabel
+            // 
+            this.rat_datelabel.AutoSize = true;
+            this.rat_datelabel.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rat_datelabel.ForeColor = System.Drawing.Color.PaleTurquoise;
+            this.rat_datelabel.Location = new System.Drawing.Point(23, 35);
+            this.rat_datelabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.rat_datelabel.Name = "rat_datelabel";
+            this.rat_datelabel.Size = new System.Drawing.Size(99, 19);
+            this.rat_datelabel.TabIndex = 20;
+            this.rat_datelabel.Text = "07/26/2019";
+            this.rat_datelabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Corbel", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.MediumSlateBlue;
+            this.label4.Location = new System.Drawing.Point(52, 4);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(40, 18);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "Date";
             // 
             // recording_time
             // 
@@ -285,15 +338,16 @@
             // 
             // selectButton
             // 
+            this.selectButton.BackColor = System.Drawing.Color.WhiteSmoke;
             this.selectButton.Font = new System.Drawing.Font("Corbel", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.selectButton.ForeColor = System.Drawing.Color.BlueViolet;
-            this.selectButton.Location = new System.Drawing.Point(28, 89);
+            this.selectButton.ForeColor = System.Drawing.Color.MediumSlateBlue;
+            this.selectButton.Location = new System.Drawing.Point(28, 75);
             this.selectButton.Margin = new System.Windows.Forms.Padding(2);
             this.selectButton.Name = "selectButton";
             this.selectButton.Size = new System.Drawing.Size(64, 23);
             this.selectButton.TabIndex = 20;
             this.selectButton.Text = "SELECT";
-            this.selectButton.UseVisualStyleBackColor = true;
+            this.selectButton.UseVisualStyleBackColor = false;
             this.selectButton.Click += new System.EventHandler(this.choose_rat);
             // 
             // ratSelectionLabel
@@ -301,7 +355,7 @@
             this.ratSelectionLabel.AutoSize = true;
             this.ratSelectionLabel.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ratSelectionLabel.ForeColor = System.Drawing.Color.PaleTurquoise;
-            this.ratSelectionLabel.Location = new System.Drawing.Point(26, 63);
+            this.ratSelectionLabel.Location = new System.Drawing.Point(24, 45);
             this.ratSelectionLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ratSelectionLabel.Name = "ratSelectionLabel";
             this.ratSelectionLabel.Size = new System.Drawing.Size(0, 19);
@@ -309,14 +363,15 @@
             // 
             // feeder_btn
             // 
-            this.feeder_btn.Font = new System.Drawing.Font("Corbel", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.feeder_btn.ForeColor = System.Drawing.Color.BlueViolet;
-            this.feeder_btn.Location = new System.Drawing.Point(456, 279);
+            this.feeder_btn.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.feeder_btn.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.feeder_btn.ForeColor = System.Drawing.Color.MediumSlateBlue;
+            this.feeder_btn.Location = new System.Drawing.Point(479, 279);
             this.feeder_btn.Name = "feeder_btn";
-            this.feeder_btn.Size = new System.Drawing.Size(140, 45);
+            this.feeder_btn.Size = new System.Drawing.Size(89, 45);
             this.feeder_btn.TabIndex = 22;
             this.feeder_btn.Text = "FEEDERS";
-            this.feeder_btn.UseVisualStyleBackColor = true;
+            this.feeder_btn.UseVisualStyleBackColor = false;
             this.feeder_btn.Click += new System.EventHandler(this.feeder_btn_Click);
             // 
             // stopButton
@@ -324,14 +379,14 @@
             this.stopButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.stopButton.FlatAppearance.BorderSize = 0;
             this.stopButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.stopButton.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stopButton.ForeColor = System.Drawing.Color.MidnightBlue;
-            this.stopButton.Location = new System.Drawing.Point(337, 168);
+            this.stopButton.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.stopButton.ForeColor = System.Drawing.Color.DarkRed;
+            this.stopButton.Location = new System.Drawing.Point(314, 146);
             this.stopButton.Margin = new System.Windows.Forms.Padding(2);
             this.stopButton.Name = "stopButton";
-            this.stopButton.Size = new System.Drawing.Size(66, 36);
+            this.stopButton.Size = new System.Drawing.Size(122, 50);
             this.stopButton.TabIndex = 12;
-            this.stopButton.Text = "STOP";
+            this.stopButton.Text = "STOP RUN";
             this.stopButton.UseVisualStyleBackColor = false;
             this.stopButton.Click += new System.EventHandler(this.stop_button_click);
             // 
@@ -340,9 +395,9 @@
             this.recordButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.recordButton.Font = new System.Drawing.Font("Corbel", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.recordButton.ForeColor = System.Drawing.Color.MediumSlateBlue;
-            this.recordButton.Location = new System.Drawing.Point(482, 200);
+            this.recordButton.Location = new System.Drawing.Point(479, 200);
             this.recordButton.Name = "recordButton";
-            this.recordButton.Size = new System.Drawing.Size(83, 47);
+            this.recordButton.Size = new System.Drawing.Size(89, 47);
             this.recordButton.TabIndex = 46;
             this.recordButton.Text = "RECORD";
             this.recordButton.UseVisualStyleBackColor = true;
@@ -353,9 +408,9 @@
             this.acquireButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.acquireButton.Font = new System.Drawing.Font("Corbel", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.acquireButton.ForeColor = System.Drawing.Color.MediumSlateBlue;
-            this.acquireButton.Location = new System.Drawing.Point(482, 136);
+            this.acquireButton.Location = new System.Drawing.Point(479, 136);
             this.acquireButton.Name = "acquireButton";
-            this.acquireButton.Size = new System.Drawing.Size(83, 48);
+            this.acquireButton.Size = new System.Drawing.Size(89, 48);
             this.acquireButton.TabIndex = 45;
             this.acquireButton.Text = "ACQUIRE";
             this.acquireButton.UseVisualStyleBackColor = true;
@@ -369,7 +424,7 @@
             this.stopPostSleep.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.stopPostSleep.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.stopPostSleep.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(40)))), ((int)(((byte)(0)))));
-            this.stopPostSleep.Location = new System.Drawing.Point(305, 43);
+            this.stopPostSleep.Location = new System.Drawing.Point(314, 18);
             this.stopPostSleep.Name = "stopPostSleep";
             this.stopPostSleep.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.stopPostSleep.Size = new System.Drawing.Size(122, 29);
@@ -386,10 +441,10 @@
             this.startPostSleep.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.startPostSleep.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startPostSleep.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(40)))), ((int)(((byte)(0)))));
-            this.startPostSleep.Location = new System.Drawing.Point(169, 43);
+            this.startPostSleep.Location = new System.Drawing.Point(172, 18);
             this.startPostSleep.Name = "startPostSleep";
             this.startPostSleep.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.startPostSleep.Size = new System.Drawing.Size(124, 29);
+            this.startPostSleep.Size = new System.Drawing.Size(118, 29);
             this.startPostSleep.TabIndex = 56;
             this.startPostSleep.Text = "Start Post-Sleep";
             this.startPostSleep.UseVisualStyleBackColor = false;
@@ -402,14 +457,15 @@
             this.stopPreSleep.BackColor = System.Drawing.Color.MistyRose;
             this.stopPreSleep.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.stopPreSleep.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stopPreSleep.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(40)))), ((int)(((byte)(0)))));
-            this.stopPreSleep.Location = new System.Drawing.Point(305, 43);
+            this.stopPreSleep.ForeColor = System.Drawing.Color.Maroon;
+            this.stopPreSleep.Location = new System.Drawing.Point(314, 18);
             this.stopPreSleep.Name = "stopPreSleep";
             this.stopPreSleep.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.stopPreSleep.Size = new System.Drawing.Size(122, 29);
             this.stopPreSleep.TabIndex = 55;
             this.stopPreSleep.Text = "Stop Pre-Sleep";
             this.stopPreSleep.UseVisualStyleBackColor = false;
+            this.stopPreSleep.Visible = false;
             this.stopPreSleep.Click += new System.EventHandler(this.stopPreSleep_Click);
             // 
             // startPreSleep
@@ -419,23 +475,36 @@
             this.startPreSleep.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.startPreSleep.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startPreSleep.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(40)))), ((int)(((byte)(0)))));
-            this.startPreSleep.Location = new System.Drawing.Point(169, 43);
+            this.startPreSleep.Location = new System.Drawing.Point(172, 18);
             this.startPreSleep.Name = "startPreSleep";
             this.startPreSleep.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.startPreSleep.Size = new System.Drawing.Size(124, 29);
+            this.startPreSleep.Size = new System.Drawing.Size(118, 29);
             this.startPreSleep.TabIndex = 54;
             this.startPreSleep.Text = "Start Pre-Sleep";
             this.startPreSleep.UseVisualStyleBackColor = false;
+            this.startPreSleep.Visible = false;
             this.startPreSleep.Click += new System.EventHandler(this.startPreSleep_Click);
+            // 
+            // ephys
+            // 
+            this.ephys.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.ephys.Font = new System.Drawing.Font("Corbel", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ephys.ForeColor = System.Drawing.Color.MediumSlateBlue;
+            this.ephys.Location = new System.Drawing.Point(17, 338);
+            this.ephys.Name = "ephys";
+            this.ephys.Size = new System.Drawing.Size(109, 56);
+            this.ephys.TabIndex = 58;
+            this.ephys.Text = "EPHYS";
+            this.ephys.UseVisualStyleBackColor = false;
+            this.ephys.Click += new System.EventHandler(this.ephys_Click);
             // 
             // LinearTrackGui
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.ClientSize = new System.Drawing.Size(617, 428);
-            this.Controls.Add(this.stopPostSleep);
-            this.Controls.Add(this.startPostSleep);
+            this.ClientSize = new System.Drawing.Size(627, 437);
+            this.Controls.Add(this.ephys);
             this.Controls.Add(this.stopPreSleep);
             this.Controls.Add(this.startPreSleep);
             this.Controls.Add(this.recordButton);
@@ -443,8 +512,6 @@
             this.Controls.Add(this.feeder_btn);
             this.Controls.Add(this.ratSelectionLabel);
             this.Controls.Add(this.selectButton);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.stopButton);
@@ -457,6 +524,8 @@
             this.Controls.Add(this.notesBox);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.startPostSleep);
+            this.Controls.Add(this.stopPostSleep);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "LinearTrackGui";
@@ -503,6 +572,10 @@
         private System.Windows.Forms.Button startPostSleep;
         private System.Windows.Forms.Button stopPreSleep;
         private System.Windows.Forms.Button startPreSleep;
+        private System.Windows.Forms.Button ephys;
+        private System.Windows.Forms.Label rat_datelabel;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label rat_timelabel;
     }
 }
 

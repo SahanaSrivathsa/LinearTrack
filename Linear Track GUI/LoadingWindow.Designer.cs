@@ -33,6 +33,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -50,23 +51,38 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(140, 274);
+            this.progressBar1.BackColor = System.Drawing.SystemColors.Control;
+            this.progressBar1.ForeColor = System.Drawing.Color.Gray;
+            this.progressBar1.Location = new System.Drawing.Point(148, 271);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(309, 43);
+            this.progressBar1.Size = new System.Drawing.Size(309, 36);
             this.progressBar1.TabIndex = 6;
             this.progressBar1.Click += new System.EventHandler(this.progressBar1_Click);
             // 
             // timer1
             // 
+            this.timer1.Interval = 10;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label3.Font = new System.Drawing.Font("Corbel", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(190, 369);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(234, 14);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Adele Kapellusch 2016 , Sahana Srivathsa 2018";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(204, 374);
+            this.label2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label2.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(208, 342);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(194, 15);
+            this.label2.Size = new System.Drawing.Size(195, 18);
             this.label2.TabIndex = 7;
             this.label2.Text = "Laboratory of Carol A. Barnes";
             // 
@@ -77,6 +93,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(613, 407);
             this.ControlBox = false;
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.pictureBox1);
@@ -96,6 +113,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
     }
 }

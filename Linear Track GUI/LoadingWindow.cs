@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Linear_Track_GUI
 {
-    public partial class LoadingWindow : Form
+    public partial class  LoadingWindow : Form
     {
         public LoadingWindow()
         {
@@ -41,6 +41,11 @@ namespace Linear_Track_GUI
         public void killMe()
         {
             this.Close();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -6,7 +6,9 @@ using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using System.IO.Ports;
-
+using System.Drawing.Imaging;
+using Microsoft.Office.Interop;
+using System.Linq;
 
 namespace Linear_Track_GUI
 {
@@ -27,7 +29,7 @@ namespace Linear_Track_GUI
         private List<string> session = new List<string>();
         private Dictionary<string, string> name_to_age = new Dictionary<string, string>();
         private Dictionary<string, int> name_to_session = new Dictionary<string, int>();
-        private dynamic chosenRat;
+        public static dynamic chosenRat;
         private bool _exiting;
         private bool saved = false;
         public bool newSesh { get; set; } = false;
@@ -36,6 +38,7 @@ namespace Linear_Track_GUI
         public static bool recordingStatus = true;
         public static string newRatNo;
         public static string newRatAge;
+        
 
         private WindowsFormsSection NeuralynxWindow { get; }
 
@@ -70,8 +73,14 @@ namespace Linear_Track_GUI
             //reminderWindow.Show();
             //this.Focus();  
             
+            //if (recordingStatus == false) { ephys.Hide(); } 
+
             foreach (var rat in ratName) this.ratSelection.Items.Add(rat);
             this.ratSelection.Items.Add("New Rat");
+
+            rat_datelabel.Text = DateTime.Now.ToShortDateString();
+            rat_timelabel.Text = DateTime.Now.ToShortTimeString();
+            
         }
 
         public void confirm()
@@ -85,6 +94,7 @@ namespace Linear_Track_GUI
         private void LinearTrackGui_Load(object sender, EventArgs e)
         {
             saveButton.Enabled = false;
+            ephys.Hide();
             startButton.Hide();
             stopButton.Hide();
         }
@@ -162,10 +172,16 @@ namespace Linear_Track_GUI
             if (ratWasChosen)
             {
                 selectButton.Hide();
-                startPreSleep.Show();
-                stopPreSleep.Show();
+                if (recordingStatus == true)
+                {
+                    startPreSleep.Show();
+                    stopPreSleep.Show();
+
+                }
+                ephys.Show();
                 startButton.Show();
                 stopButton.Show();
+                
                 selectedRat = true;
                 saveButton.Enabled = true;
                 ratSelection.Hide();
@@ -200,10 +216,15 @@ namespace Linear_Track_GUI
                 updateTime();
                 if (recordButton.BackColor != Color.AliceBlue && recordingStatus == true)
                 {
-                    MessageBox.Show(this, "Check if Cheetah is Recording Session", "Cheetah Recording",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
-                    return;
+                    if (MessageBox.Show(this, "Is Cheetah Recording", "Cheetah Recording", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) == DialogResult.No)
+                    {
+                        SessionHasBegun = false;
+                    }
+                    else { SessionHasBegun = true; }
                 }
+                else { SessionHasBegun = true;  }
+
+
                 string reply = "";
                 if (!(mNetComClient.SendCommand("-PostEvent \"StartLT\" 0 0", ref reply)) && recordingStatus == true)
                 {
@@ -223,14 +244,19 @@ namespace Linear_Track_GUI
                     }
 
                 }
-                startButton.ForeColor = Color.AliceBlue;
-                startPreSleep.Visible = false;
-                stopPreSleep.Visible = false;
-                startButton.Enabled = false;
-                //Background worker for arduino 
-                felix.DoWork += listen_to_arduino;
-                felix.RunWorkerCompleted += run_worker_completed;
-                felix.RunWorkerAsync();
+                if (SessionHasBegun == true)
+                {
+                    startButton.ForeColor = Color.AliceBlue;
+                    startPreSleep.Visible = false;
+                    stopPreSleep.Visible = false;
+                    startButton.Enabled = false;
+
+                    //Background worker for arduino 
+                    felix.DoWork += listen_to_arduino;
+                    felix.RunWorkerCompleted += run_worker_completed;
+                    felix.RunWorkerAsync();
+                }
+                
             }
             else
             {
@@ -260,13 +286,19 @@ namespace Linear_Track_GUI
             if (!e.Cancelled && (e.Error == null) && (e.Result != null) && SessionHasBegun)
             {
                 var messageType = e.Result.ToString().Substring(0, 1);
-                
+                if (messageType == "G")
+                {
+                    newSesh = true;
+                }
+                if (newSesh)
+                {
                     if (messageType == "c")
                     {
                         lapcnt++;
                         lapNum.Text = lapcnt.ToString();
 
                     }
+                }
             }
             if (!felix.IsBusy)
                 felix.RunWorkerAsync();
@@ -315,8 +347,12 @@ namespace Linear_Track_GUI
             }
             stopButton.Enabled = false;
             startButton.Enabled = false;
-            startPostSleep.Visible = true;
-            stopPostSleep.Visible = true;
+            if (recordingStatus == true)
+            {
+                startPostSleep.Visible = true;
+                stopPostSleep.Visible = true;
+            }
+            
         }
 
         public void disable_NLX()
@@ -345,6 +381,15 @@ namespace Linear_Track_GUI
             }
             CsvFiles.closeWriter();
             CsvFiles.closeTraining();
+            if (!Directory.Exists(
+                            $@"C:\Users\sahanasrivathsa\Documents\Barnes Lab\LTtraining\ScreenShots\{chosenRat}"))
+                Directory.CreateDirectory(
+                    $@"C:\Users\sahanasrivathsa\Documents\Barnes Lab\LTtraining\ScreenShots\{chosenRat}");
+            var bmpScreenCapture = new Bitmap(Width, Height);
+            DrawToBitmap(bmpScreenCapture, new Rectangle(0, 0, bmpScreenCapture.Width, bmpScreenCapture.Height));
+            bmpScreenCapture.Save(
+                $@"C:\Users\sahanasrivathsa\Documents\Barnes Lab\LTtraining\ScreenShots\{chosenRat}\LTscreenshot_{chosenRat}_Session{name_to_session[chosenRat]}.gif",
+                ImageFormat.Gif);
             saved = true;
         }
 
@@ -478,7 +523,7 @@ namespace Linear_Track_GUI
             startPreSleep.ForeColor = Color.GhostWhite;
             startPreSleep.BackColor = Color.SeaGreen;
             string reply = "";
-            //mNetComClient.SendCommand("-PostEvent \"StartSleepPre\" 0 0", ref reply);
+            
             if (!(mNetComClient.SendCommand("-PostEvent \"StartSleepPre\" 0 0", ref reply)))
             {
                 MessageBox.Show(this, "Send command to server failed", "NetCom Error", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
@@ -519,6 +564,22 @@ namespace Linear_Track_GUI
                 }
 
             }
+        }
+
+        private void ephys_Click(object sender, EventArgs e)
+        {
+            var ephys_window = new Ephys();
+            ephys_window.Show();
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void ratSession_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
